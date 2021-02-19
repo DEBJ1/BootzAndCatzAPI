@@ -19,8 +19,7 @@ namespace BootzAndCatz.Data
         [Required]
         public string Breed { get; set; }
 
-        [Required]
-        public int Age { get; set; }
+        public int? Age { get; set; }
 
         [Required]
         public string AboutMe { get; set; }

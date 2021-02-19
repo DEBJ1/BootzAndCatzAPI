@@ -8,5 +8,11 @@ namespace BootzAndCatz.Models
 {
     public class CatListItem
     {
+        public int CatId { get; set; }
+
+        public string Name { get; set; }
+
+        //add picture (if we can!)
+
     }
 }
