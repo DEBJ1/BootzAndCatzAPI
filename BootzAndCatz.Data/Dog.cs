@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace BootzAndCatz.Data
 {
     public class Dog : Pet
-
+    
     {
+        //derived class
         [Key]
         public int DogId { get; set; }
 
