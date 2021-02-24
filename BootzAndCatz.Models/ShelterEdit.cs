@@ -8,5 +8,14 @@ namespace BootzAndCatz.Models
 {
     public class ShelterEdit
     {
+        public string ShelterName { get; set; }
+
+        public int ZipCode { get; set; }
+
+        public string Description { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string Address { get; set; }
     }
 }
