@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 namespace BootzAndCatz.Data
 {
     public class Dog : Pet
-
+    
     {
+
         [Key, Column(Order = 1)]
+
+        //derived class
+        [Key]
         public int DogId { get; set; }
 
         [Required]
