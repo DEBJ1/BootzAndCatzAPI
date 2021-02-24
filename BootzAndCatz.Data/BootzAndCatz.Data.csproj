@@ -90,6 +90,11 @@
     <Compile Include="Cat.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202102240023478_initMigration.cs" />
+    <Compile Include="Migrations\202102240023478_initMigration.designer.cs">
+      <DependentUpon>202102240023478_initMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shelter.cs" />
@@ -97,6 +102,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102240023478_initMigration.resx">
+      <DependentUpon>202102240023478_initMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

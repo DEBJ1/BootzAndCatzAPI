@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace BootzAndCatz.Data
     //base class
     public class Pet
     {
-        [Key]
+        [Key, Column(Order = 2)]
         public Guid PetId { get; set; }
 
         [Required]
@@ -19,10 +20,15 @@ namespace BootzAndCatz.Data
         [Required]
         public string Breed { get; set; }
 
+        [Required]
         public int? Age { get; set; }
 
         [Required]
         public string AboutMe { get; set; }
         //FK to adoption agency ID
+
+        [ForeignKey("Shelter")]
+        public string ShelterName { get; set; }
+        public virtual Shelter Shelter { get; set; }
     }
 }
