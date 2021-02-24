@@ -31,4 +31,4 @@ namespace BootzAndCatz.Models
         public string AboutMe { get; set; }
     }
 }
-}
+
