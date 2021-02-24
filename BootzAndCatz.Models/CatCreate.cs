@@ -23,7 +23,6 @@ namespace BootzAndCatz.Models
         [Required]
         public string Breed { get; set; }
 
-        [Required]
         public int Age { get; set; }
 
         [Required]

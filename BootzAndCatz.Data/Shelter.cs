@@ -22,12 +22,12 @@ namespace BootzAndCatz.Data
         public string Address { get; set; }
 
 
-        [ForeignKey(nameof(Cat))]
-        public int CatId { get; set; }
-        public virtual Cat Cat { get; set; }
+        //[ForeignKey(nameof(Cat))]
+        //public int CatId { get; set; }
+        //public virtual Cat Cat { get; set; }
 
-        [ForeignKey(nameof(Dog))]
-        public int DogId { get; set; }
-        public virtual Dog Dog { get; set; }
+        //[ForeignKey(nameof(Dog))]
+        //public int DogId { get; set; }
+        //public virtual Dog Dog { get; set; }
     }
 }
