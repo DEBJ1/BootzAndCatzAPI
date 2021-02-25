@@ -9,11 +9,9 @@ using System.Threading.Tasks;
 namespace BootzAndCatz.Data
 {
     //base class
-    public class Pet
+    public abstract class Pet
     {
-        [Key, Column(Order = 2)]
-        public Guid PetId { get; set; }
-
+     
         [Required]
         public string Name { get; set; }
 
