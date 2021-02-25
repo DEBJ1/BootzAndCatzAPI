@@ -15,7 +15,6 @@ namespace BootzAndCatz.Data
         [Key, Column(Order = 1)]
 
         //derived class
-        [Key]
         public int DogId { get; set; }
 
         [Required]

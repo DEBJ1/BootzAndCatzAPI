@@ -26,8 +26,10 @@ namespace BootzAndCatz.Models
         public int Age { get; set; }
 
         [Required]
-        [MinLength(50, ErrorMessage = "Please enter at least 1 characters.")]
+        [MinLength(1, ErrorMessage = "Please enter at least 1 characters.")]
         [MaxLength(2000, ErrorMessage = "There are too many characters in this field.")]
         public string AboutMe { get; set; }
+
+        public int ShelterId { get; set; }
     }
 }
