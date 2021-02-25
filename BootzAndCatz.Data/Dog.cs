@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace BootzAndCatz.Data
 {
+    //derived class
     public class Dog : Pet
     
     {
-
         [Key, Column(Order = 1)]
 
-        //derived class
         public int DogId { get; set; }
 
         [Required]
