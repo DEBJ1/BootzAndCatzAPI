@@ -11,11 +11,11 @@ namespace BootzAndCatz.Services
     
     public class CatServices
     {
-        private readonly int _catId;
+        private readonly Guid _userId;
 
-        public CatServices(int catId)
+        public CatServices(Guid userId)
         {
-            _catId = catId;
+            _userId = userId;
         }
 
         //create cat
@@ -24,7 +24,7 @@ namespace BootzAndCatz.Services
             var entity =
                 new Cat()
                 {
-                    CatId = _catId,
+                    ShelterId = model.ShelterId,
                     IsDeclawed = model.IsDeclawed,
                     IsFat = model.IsFat,
                     Name = model.Name,
@@ -47,7 +47,7 @@ namespace BootzAndCatz.Services
                 var query =
                     ctx
                     .Cats
-                    .Where(e => e.CatId == _catId)
+                    .Where(e => e.Shelter.ShelterOwnerId == _userId)
                     .Select(
                         e =>
                         new CatListItem
@@ -68,7 +68,7 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Cats
-                    .Single(e => e.CatId == model.CatId);
+                    .Single(e => e.CatId == model.CatId && e.Shelter.ShelterOwnerId == _userId);
                 entity.IsDeclawed = model.IsDeclawed;
                 entity.IsFat = model.IsFat;
                 entity.Name = model.Name;
@@ -89,7 +89,7 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Cats
-                    .Single(e => e.CatId == catId);
+                    .Single(e => e.CatId == catId && e.Shelter.ShelterOwnerId == _userId);
 
                 ctx.Cats.Remove(entity);
 

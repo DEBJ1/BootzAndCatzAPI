@@ -25,8 +25,8 @@ namespace BootzAndCatz.Data
         public string AboutMe { get; set; }
         //FK to adoption agency ID
 
-        [ForeignKey("Shelter")]
-        public int ShelterId { get; set; }
-        public virtual Shelter Shelter { get; set; }
+        //[ForeignKey("Shelter")]
+        //public int ShelterId { get; set; }
+        //public virtual Shelter Shelter { get; set; }
     }
 }

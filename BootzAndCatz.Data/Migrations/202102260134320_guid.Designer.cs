@@ -7,13 +7,13 @@ namespace BootzAndCatz.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class initMigration : IMigrationMetadata
+    public sealed partial class guid : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(guid));
         
         string IMigrationMetadata.Id
         {
-            get { return "202102240023478_initMigration"; }
+            get { return "202102260134320_guid"; }
         }
         
         string IMigrationMetadata.Source

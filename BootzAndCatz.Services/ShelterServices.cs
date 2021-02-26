@@ -10,11 +10,11 @@ namespace BootzAndCatz.Services
 {
     public class ShelterServices
     {
-        private readonly int _shelterId;
+        private readonly Guid _userId;
 
-        public ShelterServices(int shelterId)
+        public ShelterServices(Guid userId)
         {
-            _shelterId = shelterId;
+            _userId = userId;
         }
 
         //Shelter Create
@@ -23,7 +23,7 @@ namespace BootzAndCatz.Services
             var entity =
                 new Shelter()
                 {
-                    ShelterId = _shelterId,
+                    //ShelterId = _shelterId,
                     ShelterName = model.ShelterName,
                     ZipCode = model.ZipCode,
                     Description = model.Description,
@@ -38,14 +38,14 @@ namespace BootzAndCatz.Services
         }
 
         //get all the shelters
-        public IEnumerable<ShelterListItem> GetAllSheltes()
+        public IEnumerable<ShelterListItem> GetAllShelters()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Shelters
-                    .Where(e => e.ShelterId == _shelterId)
+                    .Where(e => e.ShelterOwnerId == _userId)
                     .Select(
                         e =>
                         new ShelterListItem
@@ -66,7 +66,7 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Shelters
-                    .Single(e => e.ShelterId == model.ShelterId);
+                    .Single(e => e.ShelterOwnerId == _userId);
                 entity.ShelterName = model.ShelterName;
                 entity.ZipCode = model.ZipCode;
                 entity.Description = model.Description;
@@ -86,7 +86,7 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Shelters
-                    .Single(e => e.ShelterId == shelterId);
+                    .Single(e => e.ShelterId == shelterId && e.ShelterOwnerId == _userId);
 
                 ctx.Shelters.Remove(entity);
 

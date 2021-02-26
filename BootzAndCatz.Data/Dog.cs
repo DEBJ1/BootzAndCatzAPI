@@ -12,7 +12,8 @@ namespace BootzAndCatz.Data
     public class Dog : Pet
     
     {
-        [Key, Column(Order = 1)]
+        [Key]
+
         public int DogId { get; set; }
 
         [Required]
@@ -23,6 +24,10 @@ namespace BootzAndCatz.Data
 
         [Required]
         public string Size { get; set; }
+
+        [ForeignKey("Shelter")]
+        public int ShelterId { get; set; }
+        public virtual Shelter Shelter { get; set; }
     }
 }
 
