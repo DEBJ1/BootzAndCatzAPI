@@ -62,10 +62,9 @@ namespace BootzAndCatzAPI.Controllers
         //cat service
         private CatServices CreateCatServices()
         {
-            // var userId = int.Parse(User.Identity.GetUserId());
-            //var catId = int.Parse(User.Identity.GetUserId());
-            var catId = new int();
-            var catServices = new CatServices(catId);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            
+            var catServices = new CatServices(userId);
 
             return catServices;
         }

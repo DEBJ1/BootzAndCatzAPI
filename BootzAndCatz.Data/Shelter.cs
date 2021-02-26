@@ -12,6 +12,10 @@ namespace BootzAndCatz.Data
     {
         [Key]
         public int ShelterId { get; set; }
+
+        [Required]
+        public Guid ShelterOwnerId { get; set; }
+
         [Required]
         public string ShelterName { get; set; }
         [Required]
