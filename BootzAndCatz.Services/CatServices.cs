@@ -62,6 +62,29 @@ namespace BootzAndCatz.Services
             }
         }
 
+        //get cats by breed
+        public IEnumerable<CatListItem> GetCatsByBreed(string breed)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Cats
+                    .Where(e => e.Breed == breed)
+                    .Select(
+                        e =>
+                        new CatListItem
+                        {
+                            CatId = e.CatId,
+                            Name = e.Name
+                        }
+                        );
+             
+                return query.ToArray();
+
+            }
+        }
+
         //update cat
         public bool UpdateCat(CatEdit model)
         {

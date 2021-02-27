@@ -37,6 +37,19 @@ namespace BootzAndCatzAPI.Controllers
             return Ok(cat);
         }
 
+        //get cats by breed
+        //[Route("get-cats-by-breed")]
+        public IHttpActionResult GetBreed(string breed)
+        {
+            CatServices catServices = CreateCatServices();
+
+            var cat = catServices.GetCatsByBreed(breed);
+            if (cat is null)
+                return Ok($"Sorry! Looks like there are currently no {breed} cats in our database.");
+
+            return Ok(cat);
+        }
+
         //edit cat
         public IHttpActionResult Put(CatEdit cat)
         {
