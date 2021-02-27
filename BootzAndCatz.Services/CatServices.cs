@@ -47,7 +47,8 @@ namespace BootzAndCatz.Services
                 var query =
                     ctx
                     .Cats
-                    .Where(e => e.Shelter.ShelterOwnerId == _userId)
+                    //.Where(e => e.Shelter.ShelterOwnerId == _userId) 
+                    //commented out line 51 because I was unsure if user needed authentication to only view cats
                     .Select(
                         e =>
                         new CatListItem
@@ -57,6 +58,30 @@ namespace BootzAndCatz.Services
                         }
                         );
                 return query.ToArray();
+                //End point works but Array is empty. query is null
+            }
+        }
+
+        //get cats by breed
+        public IEnumerable<CatListItem> GetCatsByBreed(string breed)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Cats
+                    .Where(e => e.Breed == breed)
+                    .Select(
+                        e =>
+                        new CatListItem
+                        {
+                            CatId = e.CatId,
+                            Name = e.Name
+                        }
+                        );
+             
+                return query.ToArray();
+
             }
         }
 
@@ -89,7 +114,9 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Cats
-                    .Single(e => e.CatId == catId && e.Shelter.ShelterOwnerId == _userId);
+                    .SingleOrDefault(e => e.CatId == catId && e.Shelter.ShelterOwnerId == _userId);
+
+                //error here, "Sequence contains no elements" (could be putting request in postman wrong)
 
                 ctx.Cats.Remove(entity);
 

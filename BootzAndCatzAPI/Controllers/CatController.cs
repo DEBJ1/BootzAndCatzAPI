@@ -25,7 +25,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateCat(cat))
                 return InternalServerError();
 
-            return Ok();
+            return Ok($"{cat.Name} has been posted to Bootz & Catz!");
 
         }
 
@@ -34,6 +34,19 @@ namespace BootzAndCatzAPI.Controllers
         {
             CatServices catService = CreateCatServices();
             var cat = catService.GetAllCats();
+            return Ok(cat);
+        }
+
+        //get cats by breed
+        //[Route("get-cats-by-breed")]
+        public IHttpActionResult GetBreed(string breed)
+        {
+            CatServices catServices = CreateCatServices();
+
+            var cat = catServices.GetCatsByBreed(breed);
+            if (cat is null)
+                return Ok($"Sorry! Looks like there are currently no {breed} cats in our database.");
+
             return Ok(cat);
         }
 
@@ -47,7 +60,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.UpdateCat(cat))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("Cat has been updated!");
         }
 
         public IHttpActionResult Delete(int catId)
@@ -57,7 +70,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.DeleteCat(catId))
                 return InternalServerError();
 
-            return Ok();
+            return Ok($"Cat {catId} has been removed from Bootz & Catz.");
         }
         //cat service
         private CatServices CreateCatServices()

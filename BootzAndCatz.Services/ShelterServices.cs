@@ -45,7 +45,7 @@ namespace BootzAndCatz.Services
                 var query =
                     ctx
                     .Shelters
-                    .Where(e => e.ShelterOwnerId == _userId)
+                    //.Where(e => e.ShelterOwnerId == _userId)
                     .Select(
                         e =>
                         new ShelterListItem
@@ -66,7 +66,8 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Shelters
-                    .Single(e => e.ShelterOwnerId == _userId);
+                    .SingleOrDefault(e => e.ShelterId == model.ShelterId && e.ShelterOwnerId == _userId);
+                entity.ShelterId = model.ShelterId; //system null reference exception here
                 entity.ShelterName = model.ShelterName;
                 entity.ZipCode = model.ZipCode;
                 entity.Description = model.Description;
