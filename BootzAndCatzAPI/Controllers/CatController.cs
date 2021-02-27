@@ -25,7 +25,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateCat(cat))
                 return InternalServerError();
 
-            return Ok();
+            return Ok($"{cat.Name} has been posted to Bootz & Catz!");
 
         }
 
@@ -47,7 +47,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.UpdateCat(cat))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("Cat has been updated!");
         }
 
         public IHttpActionResult Delete(int catId)
@@ -57,7 +57,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.DeleteCat(catId))
                 return InternalServerError();
 
-            return Ok();
+            return Ok($"Cat {catId} has been removed from Bootz & Catz.");
         }
         //cat service
         private CatServices CreateCatServices()

@@ -45,7 +45,7 @@ namespace BootzAndCatz.Services
                 var query =
                     ctx
                     .Shelters
-                    .Where(e => e.ShelterOwnerId == _userId)
+                    //.Where(e => e.ShelterOwnerId == _userId)
                     .Select(
                         e =>
                         new ShelterListItem
