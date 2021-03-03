@@ -35,7 +35,7 @@ Update shelter information | View dogs by breed | View cats by breed
 Delete shelter | Update dog information | Update cat information
 -| Delete dog | Delete cat
 
-**Example**
+**Endpoint Example**
 
 ![catendpoints](https://user-images.githubusercontent.com/74275900/109755840-c129bd80-7bb4-11eb-91c7-4006f1bc33b5.PNG)
 
