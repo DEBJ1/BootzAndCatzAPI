@@ -11,6 +11,8 @@ namespace BootzAndCatz.Services
     
     public class CatServices
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
+
         private readonly Guid _userId;
 
         public CatServices(Guid userId)
@@ -84,44 +86,48 @@ namespace BootzAndCatz.Services
 
             }
         }
+        //get cat by id
+        public Cat GetCatById(int id)
+        {
+            var cat = _context.Cats
+                .FirstOrDefault(i => i.CatId == id);
+
+            return cat;
+        }
+
+        //delete cat
+        public bool DeleteCat(int id)
+        {
+            Cat cat = GetCatById(id);
+
+            if (cat == null)
+                return false;
+
+            _context.Cats.Remove(cat);
+
+            return _context.SaveChanges() == 1;
+        }
 
         //update cat
         public bool UpdateCat(CatEdit model)
         {
-            using (var ctx = new ApplicationDbContext())
+            //add ownerId guid here? (shelter should be the only one able to delete/ update cats
+            Cat oldCat = GetCatById(model.CatId);
+
+            if (oldCat != null)
             {
-                var entity =
-                    ctx
-                    .Cats
-                    .Single(e => e.CatId == model.CatId && e.Shelter.ShelterOwnerId == _userId);
-                entity.IsDeclawed = model.IsDeclawed;
-                entity.IsFat = model.IsFat;
-                entity.Name = model.Name;
-                entity.Age = model.Age;
-                entity.AboutMe = model.AboutMe;
-                entity.Breed = model.Breed;
+                oldCat.IsDeclawed = model.IsDeclawed;
+                oldCat.IsFat = model.IsFat;
+                oldCat.Name = model.Name;
+                oldCat.Breed = model.Breed;
+                oldCat.Age = model.Age;
+                oldCat.AboutMe = model.AboutMe;
 
-
-                return ctx.SaveChanges() == 1;
+                return _context.SaveChanges() == 1;
             }
+            else
+                return false;
         }
 
-        //delete cat
-        public bool DeleteCat(int catId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Cats
-                    .SingleOrDefault(e => e.CatId == catId && e.Shelter.ShelterOwnerId == _userId);
-
-                //error here, "Sequence contains no elements" (could be putting request in postman wrong)
-
-                ctx.Cats.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
     }
 }
