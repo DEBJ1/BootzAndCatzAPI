@@ -9,7 +9,7 @@ Bootz & Catz is a .NET Framework API Web Application developed using an n-tier a
 
 Looking to run Bootz & Catz locally? Follow these steps!
 
-1. **Clone** - Clone Bootz & Catz using this in command line 
+1. **Clone** - Clone Bootz & Catz by running the following git command in your terminal 
 
 ```bash
 git clone https://github.com/DEBJ1/BootzAndCatzAPI.git
@@ -18,7 +18,7 @@ git clone https://github.com/DEBJ1/BootzAndCatzAPI.git
 
 3. **Run** - Test that Bootz & Catz has been properly cloned by running it in the browser of your choice. The LocalHost web page should look like [this](https://imgur.com/a/RiALhvt).
 
-4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint (https://localhostxxxxx/api/Account/Register) to create an account. After creating an account, request a token  (https://localhostxxxxx/token) using your unique grant_type, email, and password. In postman add an “Authorization” header with the value set to “Bearer [your token]" (example image [here](https://imgur.com/a/xLftHNt)). You will need to add this header in every request sent.
+4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint (https://localhostxxxxx/api/Account/Register) to create an account. After creating an account, request a token  (https://localhostxxxxx/token) using your unique grant_type, email, and password. Next we're going to head to postman and add an “Authorization” header with the value set to “Bearer [your token]" (example image [here](https://imgur.com/a/xLftHNt)). You will need to add this header in every request sent.
 
 5. **Enjoy Bootz & Catz** - Ta-Da! You can now run requests in postman!
 
