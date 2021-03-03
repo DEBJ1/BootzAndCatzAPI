@@ -1,4 +1,4 @@
-# Welcometo Bootz & Catz!
+# Welcome to Bootz & Catz!
 
 ## What is Bootz & Catz?
 Bootz & Catz is a .NET Framework API Web Application developed using an n-tier architecture. The goal and purpose of our API is to utilize endpoints that allow animal rescue and shelter organizations to have an easy and reliable way of keeping track of and advertising dogs and cats in their systems. 
