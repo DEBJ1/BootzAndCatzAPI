@@ -11,16 +11,21 @@ Looking to run Bootz & Catz locally? Follow these steps!
 
 1. **Clone** - Clone Bootz & Catz by running the following git command in your terminal 
 
-```bash
-git clone https://github.com/DEBJ1/BootzAndCatzAPI.git
-```
+ ```bash
+ git clone https://github.com/DEBJ1/BootzAndCatzAPI.git
+ ```
 2. **Restore** - Bootz & Catz uses multiple nuget packages such as Swagger, Entity Framework, Owin and more. Upon opening nuget package manager, you may need to “Restore Nuget Packages” to ensure that you have the additional packages required for Bootz & Catz to run.
 
 3. **Run** - Test that Bootz & Catz has been properly cloned by running it in the browser of your choice. The LocalHost web page should look like [this](https://imgur.com/a/RiALhvt).
 
-4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint in postman (https://localhostxxxxx/api/Account/Register) to create an account. After creating an account, send a request for a token (https://localhostxxxxx/token) using the following key/value pairs: **Key**- "grant_type" **Value**- "password", **Key**- "Username" **Value**-{your email}, **Key**- "Password" **Value**- {your password}. Next we are going to open a new request and add an “Authorization” header with the value set to “Bearer [your token]" (example image [here](https://imgur.com/a/xLftHNt)). You will need to add this header in every request sent.
+4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint in postman (https://localhostxxxxx/api/Account/Register) to create an account. After creating an account, send a request for a token (https://localhostxxxxx/token) using the following key/value pairs: 
+ - **Key**- "grant_type" **Value**- "password"
+ - **Key**- "Username" **Value**- {your email}
+ - **Key**- "Password" **Value**- {your password}.
 
-5. **Enjoy Bootz & Catz** - Ta-Da! You can now run requests in postman!
+ Next we are going to open a new request and add an “Authorization” header with the value set to “Bearer [your token]" (example image [here](https://imgur.com/a/xLftHNt)). You  will need to add this header in every request sent.
+
+ 5. **Enjoy Bootz & Catz** - Ta-Da! You can now run requests in postman!
 
 
 
