@@ -51,7 +51,7 @@ Delete shelter | Update dog information | Update cat information
 - Postman
 
 ## Resources Used
-[Linkedin Learning API course](https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fbuilding-web-apis-with-asp-dot-net-web-api-2-2-2%3Ftrk%3Dshare_ent_url%26shareId%3Dyc3jvv3VS2y%252BKeRo%252F761PA%253D%253D&account=100110546)
+[LinkedIn Learning API course](https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fbuilding-web-apis-with-asp-dot-net-web-api-2-2-2%3Ftrk%3Dshare_ent_url%26shareId%3Dyc3jvv3VS2y%252BKeRo%252F761PA%253D%253D&account=100110546)
 
 [Eleven Fifty Academy Foreign Keys Video](https://youtu.be/tvq9U4K2p-s)
 
@@ -60,6 +60,8 @@ Delete shelter | Update dog information | Update cat information
 [Markdown Cheat Sheet](https://wordpress.com/support/markdown-quick-reference/)
 
 [Entity Framework Tutorial](https://www.entityframeworktutorial.net/code-first/migration-in-code-first.aspx)
+
+[LinkedIn Learning Database Foundations](https://www.linkedin.com/learning/database-foundations-storage/linking-tables-with-foreign-keys?u=100110546)
 
 
 ## License
