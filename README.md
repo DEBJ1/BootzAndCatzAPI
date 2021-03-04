@@ -59,6 +59,8 @@ Delete shelter | Update dog information | Update cat information
 
 [Markdown Cheat Sheet](https://wordpress.com/support/markdown-quick-reference/)
 
+[Entity Framework Tutorial](https://www.entityframeworktutorial.net/code-first/migration-in-code-first.aspx)
+
 
 ## License
 [MIT](https://choosealice)
