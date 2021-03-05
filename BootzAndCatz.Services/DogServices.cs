@@ -10,6 +10,7 @@ namespace BootzAndCatz.Services
 {
     public class DogServices
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
         private readonly Guid _userId;
 
         public DogServices(Guid userId)
@@ -30,7 +31,8 @@ namespace BootzAndCatz.Services
                     Name = model.Name,
                     Breed = model.Breed,
                     Age = model.Age,
-                    AboutMe = model.AboutMe
+                    AboutMe = model.AboutMe,
+                    ShelterId = model.ShelterId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -82,20 +84,39 @@ namespace BootzAndCatz.Services
             }
         }
 
+        //get by id
+        public Dog GetDogById(int id)
+        {
+            var dog = _context.Dogs
+                .FirstOrDefault(i => i.DogId == id);
+
+            return dog;
+        }
+
         //Bye dog, youre getting deleted 
         public bool DeleteDog(int dogId)
         {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Dogs
-                    .SingleOrDefault(e => e.DogId == dogId && e.Shelter.ShelterOwnerId == _userId);
+            Dog dog = GetDogById(dogId);
 
-                ctx.Dogs.Remove(entity);
+            if (dog == null)
+                return false;
 
-                return ctx.SaveChanges() == 1;
-            }
+            _context.Dogs.Remove(dog);
+
+            return _context.SaveChanges() == 1;
+
+
+            //using (var ctx = new ApplicationDbContext())
+            //{
+            //    var entity =
+            //        ctx
+            //        .Dogs
+            //        .SingleOrDefault(e => e.DogId == dogId && e.Shelter.ShelterOwnerId == _userId);
+
+            //    ctx.Dogs.Remove(entity);
+
+            //    return ctx.SaveChanges() == 1;
+            //}
         }
     }
 }
