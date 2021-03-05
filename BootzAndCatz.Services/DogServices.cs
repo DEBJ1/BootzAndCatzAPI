@@ -10,11 +10,11 @@ namespace BootzAndCatz.Services
 {
     public class DogServices
     {
-        private readonly int _dogId;
+        private readonly Guid _userId;
 
-        public DogServices(int dogId)
+        public DogServices(Guid userId)
         {
-            _dogId = dogId;
+            _userId = userId;
         }
 
         //create dogggggggs 4days 
@@ -23,7 +23,7 @@ namespace BootzAndCatz.Services
             var entity =
                 new Dog()
                 {
-                    DogId = _dogId,
+                    
                     IsChipped = model.IsChipped,
                     EnergyLevel = model.EnergyLevel,
                     Size = model.Size,
@@ -47,7 +47,7 @@ namespace BootzAndCatz.Services
                 var query =
                     ctx
                     .Dogs
-                    .Where(e => e.DogId == _dogId)
+                    //.Where(e => e.DogId. == _dogId)
                     .Select(
                         e =>
                         new DogListItem
@@ -90,7 +90,7 @@ namespace BootzAndCatz.Services
                 var entity =
                     ctx
                     .Dogs
-                    .Single(e => e.DogId == dogId);
+                    .SingleOrDefault(e => e.DogId == dogId && e.Shelter.ShelterOwnerId == _userId);
 
                 ctx.Dogs.Remove(entity);
 
