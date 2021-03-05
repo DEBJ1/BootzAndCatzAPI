@@ -68,7 +68,7 @@ namespace BootzAndCatzAPI.Controllers
                 if (!service.DeleteDog(dogId))
                     return InternalServerError();
 
-                return Ok($"Dog {dogId} has been removed from Bootz & Catz.");
+                return Ok($"Dog {dogId} has been removed from Bootz & Catz. Forever.");
             }
             //dog service for the love of god 
             private DogServices CreateDogServices()
