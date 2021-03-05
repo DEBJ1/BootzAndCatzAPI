@@ -68,6 +68,9 @@ namespace BootzAndCatzAPI.Controllers
            CatServices catService = CreateCatServices();
 
             var cat = catService.GetCatById(id);
+            if (cat is null)
+                return Ok($"Sorry! Looks like there are currently no cats with the provided ID in our database.");
+
 
             return Ok(cat);
         }
