@@ -14,7 +14,11 @@ namespace BootzAndCatzAPI.Controllers
     [Authorize]
     public class CatController : ApiController
     {
-        //post a cat
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="cat"></param>
+       /// <returns></returns>
         public IHttpActionResult Post(CatCreate cat)
         {
             if (!ModelState.IsValid)
@@ -30,6 +34,10 @@ namespace BootzAndCatzAPI.Controllers
         }
 
         //get all cats!
+        /// <summary>
+        /// Returns all cats from database
+        /// </summary>
+        /// <returns></returns>
         public IHttpActionResult GetAll()
         {
             CatServices catService = CreateCatServices();
@@ -39,6 +47,11 @@ namespace BootzAndCatzAPI.Controllers
 
         //get cats by breed
         //[Route("get-cats-by-breed")]
+        /// <summary>
+        /// Returns cats by specific breed
+        /// </summary>
+        /// <param name="breed"></param>
+        /// <returns></returns>
         public IHttpActionResult GetBreed(string breed)
         {
             CatServices catServices = CreateCatServices();
@@ -49,8 +62,21 @@ namespace BootzAndCatzAPI.Controllers
 
             return Ok(cat);
         }
+        //get cat by id
+        public IHttpActionResult GetById(int id)
+        {
+           CatServices catService = CreateCatServices();
 
+            var cat = catService.GetCatById(id);
+
+            return Ok(cat);
+        }
         //edit cat
+        /// <summary>
+        /// Allows user to edit information of cat
+        /// </summary>
+        /// <param name="cat"></param>
+        /// <returns></returns>
         public IHttpActionResult Put(CatEdit cat)
         {
             if (!ModelState.IsValid)
@@ -63,6 +89,11 @@ namespace BootzAndCatzAPI.Controllers
             return Ok("Cat has been updated!");
         }
 
+        /// <summary>
+        /// Removes cat from database
+        /// </summary>
+        /// <param name="catId"></param>
+        /// <returns></returns>
         public IHttpActionResult Delete(int catId)
         {
             var service = CreateCatServices();

@@ -18,5 +18,12 @@ namespace BootzAndCatz.Models
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
+
+        public ShelterEdit()
+        {
+
+        }
     }
+
+    
 }

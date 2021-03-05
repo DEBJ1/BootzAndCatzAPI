@@ -1,4 +1,5 @@
-﻿using BootzAndCatz.Models;
+﻿using BootzAndCatz.Data;
+using BootzAndCatz.Models;
 using BootzAndCatz.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,6 +14,8 @@ namespace BootzAndCatzAPI.Controllers
     [Authorize]
     public class ShelterController : ApiController
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
+
         //post new shelter
         public IHttpActionResult Post(ShelterCreate shelter)
         {
@@ -36,18 +39,30 @@ namespace BootzAndCatzAPI.Controllers
             return Ok(shelter);
         }
 
-        //edit shelter
-        public IHttpActionResult Put(ShelterEdit shelter)
+        //get shelter by id
+        public IHttpActionResult Get (int id)
         {
+            ShelterServices shelterService = CreateShelterServices();
+
+            var shelter = shelterService.GetById(id);
+
+            return Ok(shelter);
+        }
+
+        //edit shelter
+        public IHttpActionResult Put(ShelterEdit oldShelter)
+        {
+            
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateShelterServices();
 
-            if (!service.UpdateShelter(shelter))
+            if (!service.UpdateShelter(oldShelter))
                 return InternalServerError();
-
-            return Ok("Shelter information has been updated!");
+            return Ok($"Shelter {oldShelter.ShelterName} has been updated!");
+               
+            //return Ok("Shelter information has been updated!");
         }
 
         public IHttpActionResult Delete(int shelterId)
@@ -56,6 +71,7 @@ namespace BootzAndCatzAPI.Controllers
 
             if (!service.DeleteShelter(shelterId))
                 return InternalServerError();
+          
 
             return Ok($"Shelter {shelterId} has been removed from Bootz & Catz");
         }

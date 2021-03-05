@@ -3,13 +3,13 @@ using BootzAndCatz.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BootzAndCatz.Services
 {
     public class ShelterServices
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
+
         private readonly Guid _userId;
 
         public ShelterServices(Guid userId)
@@ -58,42 +58,50 @@ namespace BootzAndCatz.Services
             }
         }
 
+        //get shelter by id
+        
+        public Shelter GetById(int id)
+        {
+            var shelter = _context.Shelters
+
+                .FirstOrDefault(i => i.ShelterId == id);
+
+                return shelter;
+        }
+
+        public bool DeleteShelter(int id)
+        {
+            Shelter shelter = GetById(id);
+
+            if (shelter == null)
+                return false;
+
+            _context.Shelters.Remove(shelter);
+
+            return _context.SaveChanges() == 1;
+        }
+
         //update shelter
         public bool UpdateShelter(ShelterEdit model)
         {
-            using (var ctx = new ApplicationDbContext())
+            Shelter oldShelter = GetById(model.ShelterId);
+
+            if (oldShelter != null)
             {
-                var entity =
-                    ctx
-                    .Shelters
-                    .SingleOrDefault(e => e.ShelterId == model.ShelterId && e.ShelterOwnerId == _userId);
-                entity.ShelterId = model.ShelterId; //system null reference exception here
-                entity.ShelterName = model.ShelterName;
-                entity.ZipCode = model.ZipCode;
-                entity.Description = model.Description;
-                entity.PhoneNumber = model.PhoneNumber;
-                entity.Address = model.Address;
+                oldShelter.ShelterName = model.ShelterName;
+                oldShelter.ZipCode = model.ZipCode;
+                oldShelter.Description = model.Description;
+                oldShelter.PhoneNumber = model.PhoneNumber;
+                oldShelter.Address = model.Address;
 
-
-                return ctx.SaveChanges() == 1;
+                return _context.SaveChanges() == 1;
             }
+           else
+                return false;
+            
         }
 
-        //Delete Shelter
-        public bool DeleteShelter(int shelterId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Shelters
-                    .Single(e => e.ShelterId == shelterId && e.ShelterOwnerId == _userId);
-
-                ctx.Shelters.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
+       
     }
 }
 
