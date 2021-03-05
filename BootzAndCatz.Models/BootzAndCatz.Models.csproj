@@ -99,7 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="CatCreate.cs" />
     <Compile Include="CatDetail.cs" />
     <Compile Include="CatEdit.cs" />
