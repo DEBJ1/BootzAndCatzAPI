@@ -23,5 +23,7 @@ namespace BootzAndCatz.Models
         public int Age { get; set; }
 
         public string AboutMe { get; set; }
+
+        public int ShelterId { get; set; }
     }
 }    ////live, laugh, love
