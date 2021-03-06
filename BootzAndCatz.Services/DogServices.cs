@@ -65,23 +65,24 @@ namespace BootzAndCatz.Services
         //update dog
         public bool UpdateDog(DogEdit model)
         {
-            using (var ctx = new ApplicationDbContext())
+            Dog oldDog = GetDogById(model.DogId);
+
+            if (oldDog != null)
             {
-                var entity =
-                    ctx
-                    .Dogs
-                    .Single(e => e.DogId == model.DogId);
-                entity.IsChipped = model.IsChipped;
-                entity.EnergyLevel = model.EnergyLevel;
-                entity.Size = model.Size;
-                entity.Name = model.Name;
-                entity.Breed = model.Breed;
-                entity.Age = model.Age;
-                entity.AboutMe = model.AboutMe;
+                oldDog.IsChipped = model.IsChipped;
+                oldDog.EnergyLevel = model.EnergyLevel;
+                oldDog.Size = model.Size;
+                oldDog.Name = model.Name;
+                oldDog.Breed = model.Breed;
+                oldDog.Age = model.Age;
+                oldDog.AboutMe = model.AboutMe;
+                oldDog.ShelterId = model.ShelterId;
 
 
-                return ctx.SaveChanges() == 1;
+                return _context.SaveChanges() == 1;
             }
+            else
+                return false;
         }
 
         //get by id
@@ -93,7 +94,29 @@ namespace BootzAndCatz.Services
             return dog;
         }
 
-        //Bye dog, youre getting deleted 
+        public IEnumerable<DogListItem> GetDogsByBreed(string breed)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Dogs
+                    .Where(e => e.Breed == breed)
+                    .Select(
+                        e =>
+                        new DogListItem
+                        {
+                            DogId = e.DogId,
+                            Name = e.Name
+                        }
+                        );
+
+                return query.ToArray();
+
+            }
+        }
+
+            //Bye dog, youre getting deleted 
         public bool DeleteDog(int dogId)
         {
             Dog dog = GetDogById(dogId);

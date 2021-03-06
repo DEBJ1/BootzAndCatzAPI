@@ -37,7 +37,7 @@ namespace BootzAndCatzAPI.Controllers
             }
 
             //get dogs by breed
-          /*  public IHttpActionResult GetBreed(string breed)
+           public IHttpActionResult GetBreed(string breed)
             {
                 DogServices dogServices = CreateDogServices();
 
@@ -46,12 +46,14 @@ namespace BootzAndCatzAPI.Controllers
                     return Ok($"Sorry! Looks like there are currently no {breed}'s in our database.");
 
                 return Ok(dog);
-          */  //}
+          }
 
             //edit dog
-            public IHttpActionResult Put(DogEdit dog)
+            public IHttpActionResult Put(int id,[FromBody]DogEdit dog)
             {
-                if (!ModelState.IsValid)
+                 GetById(id);
+
+                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var service = CreateDogServices();
@@ -61,7 +63,18 @@ namespace BootzAndCatzAPI.Controllers
                 return Ok("The nature of this dog has been altered!");
             }
 
-            public IHttpActionResult Delete(int dogId)
+        public IHttpActionResult GetById(int id)
+        {
+            DogServices dogService = CreateDogServices();
+
+            var dog = dogService.GetDogById(id);
+            if (dog is null)
+                return Ok($" Dude, there is no dog with that provided ID in our database.");
+
+
+            return Ok(dog);
+        }
+        public IHttpActionResult Delete(int dogId)
             {
                 var service = CreateDogServices();
 
