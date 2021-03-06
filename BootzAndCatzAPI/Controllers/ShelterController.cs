@@ -27,7 +27,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateShelter(shelter))
                 return InternalServerError();
 
-            return Ok($"Wonderful, {shelter.ShelterName} has been added to Bootz & Catz! 【≽ܫ≼】");
+            return Ok($"Wonderful, {shelter.ShelterName} has been added to Bootz & Catz! ┌[ ◔ ͜ ʖ ◔ ]┐");
         }
 
         //get all shelters
