@@ -24,7 +24,7 @@ namespace BootzAndCatz.Services
             var entity =
                 new Dog()
                 {
-                    
+
                     IsChipped = model.IsChipped,
                     EnergyLevel = model.EnergyLevel,
                     Size = model.Size,

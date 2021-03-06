@@ -80,8 +80,10 @@ namespace BootzAndCatzAPI.Controllers
         /// </summary>
         /// <param name="cat"></param>
         /// <returns></returns>
-        public IHttpActionResult Put(CatEdit cat)
+        public IHttpActionResult Put(int id, [FromBody]CatEdit cat)
         {
+            GetById(id);
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -99,6 +101,8 @@ namespace BootzAndCatzAPI.Controllers
         /// <returns></returns>
         public IHttpActionResult Delete(int catId)
         {
+            //GetById(catId);
+
             var service = CreateCatServices();
 
             if (!service.DeleteCat(catId))

@@ -14,7 +14,7 @@ namespace BootzAndCatzAPI.Controllers
     [Authorize]
     public class ShelterController : ApiController
     {
-        ApplicationDbContext _context = new ApplicationDbContext();
+        //ApplicationDbContext _context = new ApplicationDbContext();
 
         //post new shelter
         public IHttpActionResult Post(ShelterCreate shelter)
