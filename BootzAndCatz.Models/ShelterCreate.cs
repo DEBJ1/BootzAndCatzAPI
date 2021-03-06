@@ -23,5 +23,8 @@ namespace BootzAndCatz.Models
 
         [Required]
         public string Address { get; set; }
+
+        //[Required]
+       // public Guid ShelterOwnerId { get; set; }
     }
 }

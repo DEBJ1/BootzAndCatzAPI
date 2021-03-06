@@ -113,11 +113,23 @@ namespace BootzAndCatzAPI.Controllers
         //cat service
         private CatServices CreateCatServices()
         {
+
             var userId = Guid.Parse(User.Identity.GetUserId());
-            
+
+            //new ShelterServices(userId);
+
             var catServices = new CatServices(userId);
 
             return catServices;
+        }
+
+        private ShelterServices GetOwnerGuid()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+
+            var shelterServices = new ShelterServices(userId);
+
+            return shelterServices;
         }
     }
 }

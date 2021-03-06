@@ -81,11 +81,11 @@ namespace BootzAndCatzAPI.Controllers
                 if (!service.DeleteDog(dogId))
                     return InternalServerError();
 
-<<<<<<< HEAD
-                return Ok($"Dog {dogId} has been removed from Bootz & Catz. (☞ﾟ∀ﾟ)☞");
-=======
-                return Ok($"Dog {dogId} has been removed from Bootz & Catz. Forever.");
->>>>>>> ab4db3fbdd8c87dde1f1165354820fb2da31507b
+
+                return Ok($"Dog {dogId} has been removed from Bootz & Catz. Forever. (☞ﾟ∀ﾟ)☞");
+
+
+
             }
             //dog service for the love of god 
             private DogServices CreateDogServices()
