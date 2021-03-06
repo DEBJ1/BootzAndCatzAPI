@@ -27,7 +27,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateShelter(shelter))
                 return InternalServerError();
 
-            return Ok($"Wonderful, {shelter.ShelterName} has been added to Bootz & Catz!");
+            return Ok($"Wonderful, {shelter.ShelterName} has been added to Bootz & Catz! ┌[ ◔ ͜ ʖ ◔ ]┐");
         }
 
         //get all shelters
@@ -60,7 +60,7 @@ namespace BootzAndCatzAPI.Controllers
 
             if (!service.UpdateShelter(oldShelter))
                 return InternalServerError();
-            return Ok($"Shelter {oldShelter.ShelterName} has been updated!");
+            return Ok($"Shelter {oldShelter.ShelterName} has been updated! ♥(ˆ⌣ˆԅ)");
                
             //return Ok("Shelter information has been updated!");
         }
@@ -73,7 +73,7 @@ namespace BootzAndCatzAPI.Controllers
                 return InternalServerError();
           
 
-            return Ok($"Shelter {shelterId} has been removed from Bootz & Catz");
+            return Ok($"Shelter {shelterId} has been removed from Bootz & Catz. (ﾟ∩ﾟ)");
         }
 
 

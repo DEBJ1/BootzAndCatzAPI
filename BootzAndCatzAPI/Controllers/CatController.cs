@@ -29,7 +29,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateCat(cat))
                 return InternalServerError();
 
-            return Ok($"{cat.Name} has been posted to Bootz & Catz!");
+            return Ok($"{cat.Name} has been posted to Bootz & Catz! ฅ^•ﻌ•^ฅ");
 
         }
 
@@ -58,7 +58,7 @@ namespace BootzAndCatzAPI.Controllers
 
             var cat = catServices.GetCatsByBreed(breed);
             if (cat is null)
-                return Ok($"Sorry! Looks like there are currently no {breed} cats in our database.");
+                return Ok($"Sorry! Looks like there are currently no {breed} cats in our database. 乁( ⁰͡ Ĺ̯ ⁰͡ ) ㄏ");
 
             return Ok(cat);
         }
@@ -69,7 +69,7 @@ namespace BootzAndCatzAPI.Controllers
 
             var cat = catService.GetCatById(id);
             if (cat is null)
-                return Ok($"Sorry! Looks like there are currently no cats with the provided ID in our database.");
+                return Ok($"Sorry! Looks like there are currently no cats with the provided ID in our database. ᕙ(⇀‸↼‶)ᕗ");
 
 
             return Ok(cat);
@@ -91,7 +91,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.UpdateCat(cat))
                 return InternalServerError();
 
-            return Ok("Cat has been updated!");
+            return Ok("Cat has been updated! (◕‿◕✿)");
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.DeleteCat(catId))
                 return InternalServerError();
 
-            return Ok($"Cat {catId} has been removed from Bootz & Catz.");
+            return Ok($"Cat {catId} has been removed from Bootz & Catz. (づ￣ ³￣)づ Bye Bye cat.");
         }
         //cat service
         private CatServices CreateCatServices()
