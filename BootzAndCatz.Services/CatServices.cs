@@ -89,8 +89,10 @@ namespace BootzAndCatz.Services
         //get cat by id
         public Cat GetCatById(int id)
         {
+            //var services = new ShelterServices()
+
             var cat = _context.Cats
-                .FirstOrDefault(i => i.CatId == id);
+                .FirstOrDefault(i => i.CatId == id && i.Shelter.ShelterOwnerId ==   _userId);
 
             return cat;
         }

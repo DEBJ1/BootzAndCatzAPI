@@ -24,6 +24,7 @@ namespace BootzAndCatz.Services
                 new Shelter()
                 {
                     //ShelterId = _shelterId,
+                    ShelterOwnerId = _userId,
                     ShelterName = model.ShelterName,
                     ZipCode = model.ZipCode,
                     Description = model.Description,
