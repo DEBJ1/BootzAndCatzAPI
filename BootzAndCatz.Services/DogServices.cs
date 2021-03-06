@@ -89,7 +89,7 @@ namespace BootzAndCatz.Services
         public Dog GetDogById(int id)
         {
             var dog = _context.Dogs
-                .FirstOrDefault(i => i.DogId == id);
+                .FirstOrDefault(i => i.DogId == id && i.Shelter.ShelterOwnerId == _userId);
 
             return dog;
         }
