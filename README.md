@@ -18,7 +18,12 @@ Looking to run Bootz & Catz locally? Follow these steps!
 
 3. **Run** - Test that Bootz & Catz has been properly cloned by running it in the browser of your choice. The LocalHost web page should look like [this](https://imgur.com/a/RiALhvt).
 
-4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint in postman (https://localhostxxxxx/api/Account/Register) to create an account. After creating an account, send a request for a token (https://localhostxxxxx/token) using the following key/value pairs: 
+4. **Authenticate** - Bootz & Catz API requires you to provide an API key in your requests to get responses. To get a Key, please utilize the Account Register endpoint in postman (https://localhostxxxxx/api/Account/Register) to create an account. Use the following key/value pairs under the Body x-www-form-urlencoded tab:
+    - **Key**- "Email" **Value**- "{your email (can be fake)}"
+    - **Key**- "Password" **Value**- {your password}
+    - **Key**- "ConfirmPassword" **Value**- {your password}
+    
+    After creating an account, send a request for a token (https://localhostxxxxx/token) using the following key/value pairs under the Body x-www-form-urlencoded tab: 
     - **Key**- "grant_type" **Value**- "password"
     - **Key**- "Username" **Value**- {your email}
     - **Key**- "Password" **Value**- {your password}

@@ -102,6 +102,15 @@
     <Compile Include="Cat.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202103050028418_InitialCreate.cs" />
+    <Compile Include="Migrations\202103050028418_InitialCreate.designer.cs">
+      <DependentUpon>202103050028418_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103050201111_Initial.cs" />
+    <Compile Include="Migrations\202103050201111_Initial.designer.cs">
+      <DependentUpon>202103050201111_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shelter.cs" />
@@ -112,6 +121,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103050028418_InitialCreate.resx">
+      <DependentUpon>202103050028418_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103050201111_Initial.resx">
+      <DependentUpon>202103050201111_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
