@@ -29,6 +29,8 @@ namespace BootzAndCatz.Models
 
         [Required]
         public string AboutMe { get; set; }
+
+        public int ShelterId { get; set; }
     }
 }
 

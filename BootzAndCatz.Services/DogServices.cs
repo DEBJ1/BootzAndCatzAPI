@@ -23,14 +23,15 @@ namespace BootzAndCatz.Services
             var entity =
                 new Dog()
                 {
-                    
+
                     IsChipped = model.IsChipped,
                     EnergyLevel = model.EnergyLevel,
                     Size = model.Size,
                     Name = model.Name,
                     Breed = model.Breed,
                     Age = model.Age,
-                    AboutMe = model.AboutMe
+                    AboutMe = model.AboutMe,
+                    ShelterId = model.ShelterId
                 };
             using (var ctx = new ApplicationDbContext())
             {
