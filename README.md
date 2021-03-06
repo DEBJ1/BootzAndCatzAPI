@@ -29,8 +29,10 @@ Looking to run Bootz & Catz locally? Follow these steps!
     - **Key**- "Password" **Value**- {your password}
 
     Next we are going to open a new request and add an “Authorization” header with the value set to “Bearer [your token]" (example image [here](https://imgur.com/a/xLftHNt)).       You  will need to add this header in every request sent.
+    
+ 5. **Post a Shelter!** - The database is not seeded into Bootz & Catz. Therefore, you will need to post a Shelter before you have access to posting/editing/deleting cats or dogs.    
 
- 5. **Enjoy Bootz & Catz** - Ta-Da! You can now run requests in postman!
+ 6. **Enjoy Bootz & Catz** - Ta-Da! You can now run requests in postman!
 
 
 
