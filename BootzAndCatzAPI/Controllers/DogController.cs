@@ -24,7 +24,7 @@ namespace BootzAndCatzAPI.Controllers
             if (!service.CreateDog(dog))
                 return InternalServerError();
 
-            return Ok($"{dog.Name} has been posted to Bootz & Catz!");
+            return Ok($"{dog.Name} has been posted to Bootz & Catz! ▼・ᴥ・▼");
 
             }
 
@@ -58,7 +58,7 @@ namespace BootzAndCatzAPI.Controllers
                 if (!service.UpdateDog(dog))
                     return InternalServerError();
 
-                return Ok("The nature of this dog has been altered!");
+                return Ok("The nature of this dog has been altered!  (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ ");
             }
 
             public IHttpActionResult Delete(int dogId)
@@ -68,7 +68,7 @@ namespace BootzAndCatzAPI.Controllers
                 if (!service.DeleteDog(dogId))
                     return InternalServerError();
 
-                return Ok($"Dog {dogId} has been removed from Bootz & Catz.");
+                return Ok($"Dog {dogId} has been removed from Bootz & Catz. (☞ﾟ∀ﾟ)☞");
             }
             //dog service for the love of god 
             private DogServices CreateDogServices()
